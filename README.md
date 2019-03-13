@@ -7,7 +7,7 @@ To build use
   node keystone
   ```
 
-##Basic information
+## Basic information
 This project builds a simple dynamic site with keystone.
 
 it uses [Pug](https://pugjs.org/api/getting-started.html) for html templating, [LESS](http://lesscss.org/) for CSS, and capable of [compiling ES7](https://babeljs.io/docs/plugins/preset-es2017/) to Javascript, too. In production mode (dist build), assets are bundled, minified, and revved to speed up loading and allow usage of server cache.
