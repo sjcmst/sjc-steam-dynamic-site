@@ -10,8 +10,8 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'sjc-steam-dynamic-site',
-	'brand': 'sjc-steam-dynamic-site',
+	'name': 'SJC STEAM Clubs',
+	'brand': 'SJC STEAM Clubs',
 
 	'less': 'public',
 	'static': 'public',

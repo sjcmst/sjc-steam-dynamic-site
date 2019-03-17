@@ -1,23 +1,60 @@
-extends ../layouts/default
+extends ../layouts/default.pug
+include ../mixins/fancybutton.pug
+
+mixin clubs(clubname)
+    .frame
+        img(src="images/grey-triangles.jpg" alt="grey triangle")
+        p.title=clubname 
+            |<br>SOCIETY
+
+block append variables
+    - var currentPage="index";
+    - var siteTitle = "HomePage Yo"; //- is this declaration put here?
 
 block content
-	.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome
-		p This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
-		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>user@keystonejs.com</strong> and the password <strong>123456</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
-		hr
-		p Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+    //- first row
+    .row.watch-video
+        .col-md-5
+            img(src="images/grey-triangles.jpg" alt="grey triangle")
+        .col-md-7.busyness
+            p Admist the busyness of school life, SJC STEAM Lab provides the space for us to #[span Break the Cycle, Rise Above, Focus on Science]
+            a(href="#!") 
+                span WATCH 
+                span.fas.fa-play-circle
+    
+    //- second row
+    .row.clubs
+        .col-md-4
+            +clubs("COMPUTER")
+        .col-md-4
+            +clubs("MATHEMATICS")
+        .col-md-4
+            +clubs("SCIENCE")
+        
+    //- third row
+    .row.learn-more
+        .col-md-7
+            ul.list-unstyled
+                li 
+                    a(href="#!") LEARN MORE
+                li 
+                    a(href="#!")
+                        span.fas.fa-file
+                        span More about the Lab
+                li                     
+                    a(href="#!") 
+                        span.fas.fa-lock
+                        span More about the students in the space
+                li                     
+                    a(href="#!")
+                        span.fas.fa-folder-open
+                        span Current Projects
+                li                
+                    a(href="#!") 
+                        span.fas.fa-wifi
+                        span Contact Us
+                li 
+                    a(href="#!") READ MORE
+                
+        .col-md-5
+            img(src="images/grey-triangles.jpg" alt="grey triangle")

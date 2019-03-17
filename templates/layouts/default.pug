@@ -6,11 +6,28 @@ html
 	//- HTML HEADER
 	head
 		meta(charset="utf-8")
-		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
+		meta(name='viewport', content='width=device-width, initial-scale=1')
 
-		title= title || 'sjc-steam-dynamic-site'
+		title= title || 'SJC STEAM Clubs'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+
+		//- OURSELVES
+		//- add google font
+		link(href="https://fonts.googleapis.com/css?family=Noto+Serif" rel="stylesheet")
+
+		//- Adding Bootstrap V4.3.1
+		link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+		
+		//- build:css /css/vendors.css
+		//- link(rel='stylesheet', href='/css/vendors/bootstrap.css')
+		//- link(rel='stylesheet', href='/css/vendors/font-awesome.css')
+		//- link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.7.2/css/all.css", integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr", crossorigin="anonymous")
+		//- endbuild
+
+
+
+
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.less
 		//- All .less files will be automatically compiled and minified in production.
@@ -27,7 +44,17 @@ html
 			script(src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js")
 		//-[endif]
 
+
+		//- OURSELVES
+		//- To set the active element for navbar
+		block variables
+			//- default values of all variables
+			- var currentPage="404";
+		
+		
+		
 		//- Include template-specific stylesheets by extending the css block
+		
 		block css
 
 		//- Add any other template-specific HEAD tags by extending the head block
@@ -37,34 +64,14 @@ html
 	body
 
 		//- HEADER
-		#header: .container
+		#header
 
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
-
-			div(role="navigation").navbar.navbar-default
-				.container-fluid
-					.navbar-header
-						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-							span.sr-only Toggle navigation
-							span.icon-bar
-							span.icon-bar
-							span.icon-bar
-						a.navbar-brand(href='/') sjc-steam-dynamic-site
-					.collapse.navbar-collapse
-						ul.nav.navbar-nav.navbar-left
-							each link in navLinks
-								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-						ul.nav.navbar-nav.navbar-right
-							if user
-								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
-								li: a(href='/keystone/signout') Sign Out
-							else
-								li: a(href='/keystone/signin') Sign In
-
+			include ../partials/navbar.pug
+			
 		//- BODY
-		#body
+		#body: .container.main_container(id=`${currentPage}`)
 
 			//- NOTE:
 			//- There is no .container wrapping class around body blocks to allow more flexibility in design.
@@ -78,27 +85,38 @@ html
 			+flash-messages(messages)
 
 			//- The content block should contain the body of your template's content
+
 			block content
+				p Hello world! This is HTML5 Boilerplate.
 
 
 		//- FOOTER
 		.container: #footer
-
+			include ../partials/footer.pug
 			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			p Created by SJC Web Development Team
-			p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+			//- p Created by SJC Web Development Team
+			//- p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
 
 
 		//- JAVASCRIPT
 
+		//- OURSELVES BOOSTRAP V4.3.1
+		script(src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous")
+		script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous")
+		script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous")
+		
+		
+		
+		
+		
 		//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 		//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 		//- you can upgrade to 2.1.4 (also bundled) for better performance.
-		script(src='/js/jquery/jquery-1.11.3.min.js')
+		//-script(src='/js/jquery/jquery-1.11.3.min.js')
 
 		//- Customise which Bootstrap javascript files are served by including
 		//- them specifically here, instead of bootstrap-3.3.5.min.js
-		script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
+		//- script(src='/js/bootstrap/bootstrap-3.3.5.min.js')
 
 		//- The KeystoneJS Content Editor provides support for ks-editable data attributes,
 		//- which generate links to edit content for users who can access Keystone
@@ -106,6 +124,8 @@ html
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.
+		//- OURSELVES
+		script(src='/js/main.js')
 
 		//- Include template-specific javascript files by extending the js block
 		block js

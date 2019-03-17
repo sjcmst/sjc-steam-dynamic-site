@@ -1,0 +1,36 @@
+.container.bg-white.sticky-top#sjc-navbar
+        nav.navbar.navbar-expand-lg.navbar-light.bg-white.row.flex-container
+            .flex-item
+                a.navbar-brand(href='/') SJC STEAM CLUBS
+                button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#sjc-navbar-items', aria-controls='theNavBar', aria-expanded='false', aria-label='Toggle navigation')
+                    span.navbar-toggler-icon
+            .flex-item
+                - var currentPage = '' || currentPage;
+
+                #sjc-navbar-items.collapse.navbar-collapse
+                    ul.navbar-nav.mr-auto
+                        li.nav-item(class={'active': currentPage === 'contact'})
+                            a.nav-link(href='contact') CONTACT
+                            
+                        li.nav-item.dropdown(aria-haspopup="true" aria-expanded="false")
+                            div.same_line
+                                a.nav-link(href='about' class={'active': currentPage === 'about'}) ABOUT
+                                #dropdown_about.nav-link(class={'active': currentPage === 'about'}) +
+                                    #sjc-dropdown.dropdown-menu(aria-labelledby="dropdown_about")
+                                        a#sjc-dropdown-projects.dropdown-item(href="projects" class={'active': currentPage === 'projects'}) PROJECTS
+                                        a#sjc-dropdown-faq.dropdown-item(href="faq" class={'active': currentPage === 'faq'}) FAQ
+                                    
+                        li.nav-item(class={'active': currentPage === 'students'})
+                            a.nav-link(href='students' ) STUDENTS
+                            
+                        li.nav-item(class={'active': currentPage === 'index'})
+                            a.nav-link(href='/' ) HOME
+                        
+                        li.nav-item
+                            if user
+                                if user.canAccessKeystone
+                                    li: a(href='/keystone' class="nav-link") Open Keystone
+                                li: a(href='/keystone/signout' class="nav-link") Sign Out
+                            else
+                                li: a(href='/keystone/signin' class="nav-link") SIGN IN
+

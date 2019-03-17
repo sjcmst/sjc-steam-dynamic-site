@@ -1,0 +1,77 @@
+extends ../layouts/default.pug
+
+//- What I have worked on abouts page
+//- 1. changed the photos and added some content
+//- 2. changed to bootstrap padding
+//- 3. adjusted the col for md screens to 12
+//-     problem: inconsistancy for feature equipment 1 and 2
+//- 4. added offset col for teams
+//-     problem: xl 2 is too small 3 is too big
+//- 5. Added mixin
+mixin team_person
+    .rounded-circle
+        img.person-icon(src="images/dude.jpeg" alt="dude")
+    p.team_title.title TITLE
+    p.team_position position
+
+block append variables
+    - var currentPage="about";
+
+block content
+    .container-fluid
+        .row#about-steam-lab
+            .col-xl-4.col-lg-4.col-md-5.col-sm-12.col-12
+                img(src="images/sjc-badge.jpg" alt="school badge")
+            .col-xl-8.col-lg-8.col-md-7.col-sm-12.col-12.px-5.py-5
+                p.title SJC STEAM CLUB
+                p.
+                    Nulla euismod elementum tortor sed laoreet. Maecenas vel sucipit
+                    lacus.
+                p.
+                    Pellentesque egestas, tellus sed accumsan vulputate,
+                    magna nisi vulputate magna, non lacinia nisl sapien nec mauris.
+                    Nunc imperdiet nibh ac odio scelerisque laoreet. Sed et ligula sit
+                    amet velit consectetur fermentum a feugiat massa. Aliquam ex
+                    quam, fringilla ac ligula vitae, semper dapibus risus. Nullam at
+                    ipsum sed erat
+                    malesuada lacinia ac ut quam. Ut vel laoreet est.
+                p.
+                    Morbi interdum viverra ipsum.
+        .row#feature-equipment-1
+            .col-xl-4.col-lg-4.col-md-12.col-sm-12.col-12.px-5.py-5
+                p.title SCRATCH
+                p.
+                    Scratch is a programming language which build on blocks. 
+                    Our junior form students can write their own creative programs there!
+                p.
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt
+                    ut labore et dolore magna aliqua. Ut
+                    enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.
+        //-    .col-xl-8.col-lg-8.col-md-7.col-sm-12.col-12
+        //-        img(src="images/numbers.jpg" alt="numbers")
+        //-    added pic in abouts.less, as a background image
+        .row#feature-equipment-2
+            .col-xl-8.col-lg-8.col-md-12.col-sm-12.col-12
+                img(src="images/3dprinter.jpg" alt="3D Printer")
+            .col-xl-4.col-lg-4.col-md-12.col-sm-12.col-12.px-5.py-5
+                p.title 3D PRINTER
+                p.
+                    A random 3D Printer found online. XD
+                p.
+                    Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt.
+    .container-fluid#team
+        .row.py-5
+            .col-12
+                p.meet_the_team.title MEET THE TEAM
+            .col-xl-2.offset-xl-2.col-lg-3.offset-lg-0.col-md-3.offset-md-0.col-sm-5.offset-sm-1.col-6
+                +team_person
+            .col-xl-2.col-lg-3.col-md-3.col-sm-5.col-6
+                +team_person
+            .col-xl-2.offset-xl-0.col-lg-3.offset-lg-0.col-md-3.offset-md-0.col-sm-5.offset-sm-1.col-6
+                +team_person
+            .col-xl-2.col-lg-3.col-md-3.col-sm-5.col-6
+                +team_person

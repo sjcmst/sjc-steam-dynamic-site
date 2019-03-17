@@ -1,0 +1,32 @@
+extends ../layouts/default.pug
+include ../mixins/fancybutton.pug
+
+mixin project
+    .shadow.p-3.mx-3.my-3.frame_height
+        img(src="images/hkoi.png" alt="HKOI").w-100
+        p.title.item-name ITEM NAME
+    +fancybutton("buttongreen", "VIEW DETAILS")
+    .mb-4
+    
+
+block append variables
+    - var currentPage="projects";
+
+block content
+    .row.text-center
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            +project
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            +project
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            +project
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            +project
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            +project
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            #coming_soon.shadow.p-3.mx-3.my-3.test-border.frame_height
+                .rounded-circle
+                .horizontal_line
+                .vertical_line
+                p COMING SOON

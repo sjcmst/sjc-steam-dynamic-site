@@ -1,0 +1,56 @@
+@import "variable.less";
+
+#sjc-navbar {
+    background-color: #FFF;
+    font-weight: 900;
+    letter-spacing: 0.2rem;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+    }
+
+    .same_line{
+        display: inline-flex;
+    }
+    a.navbar-brand {
+        color: @sjc_green_color;
+    }
+
+    a.nav-link {
+        color: lavender;
+    }
+
+    a.nav-link:hover {
+        color: silver;
+    }
+
+    a.active,li.active a{
+        color: @sjc_green_color;
+    }
+
+    .dropdown {
+        .dropdown-menu {
+            //trying to make the dropdown more similar to the design template
+            border: none;
+            padding: 0;
+            margin: 0;
+            min-width: 0;
+
+            .dropdown-item {
+                padding: 0 0.5rem;
+                color: lavender;
+            }
+
+            .dropdown-item.active {
+                color: @sjc_green_color;
+                background-color: initial;
+            }
+
+        }
+        #dropdown_about{
+            color: lavender;
+        }
+    }
+}
