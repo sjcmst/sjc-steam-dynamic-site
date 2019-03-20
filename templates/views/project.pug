@@ -1,0 +1,13 @@
+extends ../layouts/default.pug
+
+
+
+block append variables
+    - var currentPage="projects";
+
+block content
+    .row.text-center
+        if data.project
+            h1=data.project.name
+            
+            p=data.project

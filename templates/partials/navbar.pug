@@ -26,11 +26,10 @@
                         li.nav-item(class={'active': currentPage === 'index'})
                             a.nav-link(href='/' ) HOME
                         
-                        li.nav-item
+                        //-li.nav-item
                             if user
                                 if user.canAccessKeystone
                                     li: a(href='/keystone' class="nav-link") Open Keystone
                                 li: a(href='/keystone/signout' class="nav-link") Sign Out
                             else
                                 li: a(href='/keystone/signin' class="nav-link") SIGN IN
-
