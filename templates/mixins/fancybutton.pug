@@ -1,3 +1,5 @@
-mixin fancybutton(color, text)
-    .btn.fancybutton(class=color)=text
+mixin fancybutton(color, text, slug)
+    a(href=slug)
+        .btn.fancybutton(class=color)=text
+    
         

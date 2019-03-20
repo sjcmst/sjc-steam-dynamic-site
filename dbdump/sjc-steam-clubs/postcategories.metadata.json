@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"sjc-steam-clubs.postcategories"},{"v":2,"unique":true,"key":{"key":1},"name":"key_1","ns":"sjc-steam-clubs.postcategories","background":true}],"uuid":"8ac3766c4f1f44589927f4a91bf93ff4"}
+{"options":{},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"sjc-steam-clubs.postcategories"},{"v":2,"unique":true,"key":{"key":1},"name":"key_1","ns":"sjc-steam-clubs.postcategories","background":true}],"uuid":"984b282d9e724198944b11787a351c78"}
