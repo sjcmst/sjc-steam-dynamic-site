@@ -1,12 +1,21 @@
 # sjc-steam-dynamic-site
 Move our static site to keystone
 
-To build use
+To build, use
   ```sh
   mongod
-  node keystone
+  npm start
   ```
 
+Before each push from github, use
+  ```sh
+  npm backupdb
+  ```
+After each pull from github, use
+  ```sh
+  npm updatedb
+  ```
+  
 ## Basic information
 This project builds a simple dynamic site with keystone.
 
@@ -31,29 +40,36 @@ or via npm if you are not familiar with yarn
   ```
 ### Development
 
-In development, the `src` is built into a directory named `public` and served by `gulp-connect`. The `public` directory is actually ready for server hosting as well, the `dist` version is just more optimized.
+In development, `keystone ` would host the site dynamically at `localhost:3000`
 
-1. **To build** 
-
+1. **Database** 
+  everything here builds on mongoDB. Run
   ```sh
-  gulp build
+  mongod
   ```
+  before build and preview
+
 
 2. **To build and preview** 
 
   ```sh
-  gulp serve
-  gulp serve --port=PORT_NUMBER     # serve at a specific port
-  gulp serve --allowlan             # allow devices on the lan network to access your hosted preview
+  yarn start
   ```
-
-3. **To show all available commands**
+  or
   ```sh
-  gulp
+  npm start
   ```
 
-
+3. **Database management**
+  ```sh
+  yarn backupdb #To transfer the db from local to dbdump here
+  ```
+  ```sh
+  yarn updatedb #To transfer the db from dbdump to local
+  ```
 ### Production (Distribution)
+
+IDK
 
 In production, the html is minimized, js and css files are concatenated and minified, imagemin is also used to compress/optimize the images. The result files are placed in a directory named `dist`
 
@@ -100,13 +116,15 @@ In some cases, it may be difficult to install a global bower/gulp on your server
 
 ## Yeoman Generator Usage
 
+Yeoman is used to generate the keystone site.
+
 First, install yo and the generator
 ```bash
 npm install -g yo
-npm install -g generator-gulp-static
+npm install -g generator-keystone
 ```
 Then generate your new project:
 
 ```bash
-yo gulp-static
+yo keystone
 ```
