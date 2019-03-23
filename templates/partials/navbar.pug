@@ -10,18 +10,18 @@
                 #sjc-navbar-items.collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
                         li.nav-item(class={'active': currentPage === 'contact'})
-                            a.nav-link(href='contact') CONTACT
+                            a.nav-link(href='/contact') CONTACT
                             
                         li.nav-item.dropdown(aria-haspopup="true" aria-expanded="false")
                             div.same_line
-                                a.nav-link(href='about' class={'active': currentPage === 'about'}) ABOUT
+                                a.nav-link(href='/about' class={'active': currentPage === 'about'}) ABOUT
                                 #dropdown_about.nav-link(class={'active': currentPage === 'about'}) +
                                     #sjc-dropdown.dropdown-menu(aria-labelledby="dropdown_about")
-                                        a#sjc-dropdown-projects.dropdown-item(href="projects" class={'active': currentPage === 'projects'}) PROJECTS
-                                        a#sjc-dropdown-faq.dropdown-item(href="faq" class={'active': currentPage === 'faq'}) FAQ
+                                        a#sjc-dropdown-projects.dropdown-item(href="/projects" class={'active': currentPage === 'projects'}) PROJECTS
+                                        a#sjc-dropdown-faq.dropdown-item(href="/faq" class={'active': currentPage === 'faq'}) FAQ
                                     
-                        li.nav-item(class={'active': currentPage === 'students'})
-                            a.nav-link(href='students' ) STUDENTS
+                        li.nav-item(class={'active': currentPage === 'blog'})
+                            a.nav-link(href='/blog' ) BLOG
                             
                         li.nav-item(class={'active': currentPage === 'index'})
                             a.nav-link(href='/' ) HOME

@@ -3,11 +3,15 @@ extends ../layouts/default.pug
 
 
 block append variables
-    - var currentPage="projects";
+    - var currentPage="project";
 
 block content
-    .row.text-center
-        if data.project
-            h1=data.project.name
-            
-            p=data.project
+    if data.project
+        h2.title.text-uppercase=data.project.name
+        br
+        div
+            if data.project.description.brief
+                | !{data.project.description.brief}
+            if data.project.description.extended
+                | !{data.project.description.extended}         
+

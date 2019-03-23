@@ -3,7 +3,9 @@ include ../mixins/fancybutton.pug
 
 mixin project(project)
     .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-        .shadow.p-3.mx-3.my-3.frame_height
+        .shadow.p-3.mx-3.my-3.frame_height.text-uppercase
+            //-if project.projectImage.exist
+                .image-wrap: img(src=project._.projectImage).img-responsive.w-100
             img(src="images/hkoi.png" alt="HKOI").w-100
             p.title.item-name=project.name
         +fancybutton("buttongreen", "VIEW DETAILS", 'projects/'+project.slug)
@@ -18,9 +20,9 @@ block content
         each project in data.projects.results
             +project(project)
             
-            //-.col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-                #coming_soon.shadow.p-3.mx-3.my-3.test-border.frame_height
-                    .rounded-circle
-                    .horizontal_line
-                    .vertical_line
-                    p COMING SOON
+        .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+            #coming_soon.shadow.p-3.mx-3.my-3.test-border.frame_height
+                .rounded-circle
+                .horizontal_line
+                .vertical_line
+                p COMING SOON

@@ -15,7 +15,8 @@ Project.add({
     name: { type: String, required: true},
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true, many: true},
-    projectImage: { type: Types.CloudinaryImage },
+	team: { type: Types.Relationship, ref: "Student", many:true},
+	projectImage: { type: Types.CloudinaryImage },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	description: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
