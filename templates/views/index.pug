@@ -1,11 +1,12 @@
 extends ../layouts/default.pug
 include ../mixins/fancybutton.pug
 
-mixin clubs(clubname)
-    .frame
-        img(src="images/grey-triangles.jpg" alt="grey triangle")
-        p.title=clubname 
-            |<br>SOCIETY
+mixin club(club)
+    .col-md-4.text-uppercase
+        a(href="clubs/"+club.slug).prevent_default_a
+            .frame
+                img(src="images/grey-triangles.jpg" alt="grey triangle")
+                p.title=club.name
 
 block append variables
     - var currentPage="index";
@@ -23,14 +24,10 @@ block content
                 span.fas.fa-play-circle
     
     //- second row
-    .row.clubs
-        .col-md-4
-            +clubs("COMPUTER")
-        .col-md-4
-            +clubs("MATHEMATICS")
-        .col-md-4
-            +clubs("SCIENCE")
-        
+    .row.clubs.text-center
+        each club in data.clubs.results
+            +club(club)
+
     //- third row
     .row.learn-more
         .col-md-7

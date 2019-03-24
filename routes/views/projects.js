@@ -8,7 +8,7 @@ exports = module.exports = function(req,res){
     locals.section = "projects";
     locals.data = {};
 
-    // Load the posts
+    // Load the projects
     view.on('init', function (next) {
 
         var q = keystone.list('Project').paginate({

@@ -1,0 +1,17 @@
+extends ../layouts/default.pug
+
+
+
+block append variables
+    - var currentPage="club";
+
+block content
+    if data.club
+        h2.title.text-uppercase=data.club.name
+        br
+        div
+            if data.club.description.brief
+                | !{data.club.description.brief}
+            if data.club.description.extended
+                | !{data.club.description.extended}         
+
