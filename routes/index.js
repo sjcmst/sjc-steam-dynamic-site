@@ -42,7 +42,8 @@ exports = module.exports = function (app) {
 	app.get('/projects/:project', routes.views.project);
 	app.get('/clubs/:club',routes.views.club);
 	app.get('/faq', routes.views.faq);
-	app.get('/contact', routes.views.contact);
+	//Use all so that contact page can be shown twice?
+	app.all('/contact', routes.views.contact);
 
 
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:

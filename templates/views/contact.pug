@@ -5,30 +5,34 @@ block append variables
     - var currentPage="contact";
         
 block content
-    .container.grey-background
+    .container.grey-background.py-5
         if enquirySubmitted
-            h3 Thanks for getting in touch.
-        else
-            form.py-5.grey-background.text-center(method="post")
             .row
                 .col-12
                     p.ask-us-anything ASK US ANYTHING
-            .row
-                .col-12
-                    .form-group
-                        input.form-control(type="text", aria-describedby="name", placeholder="NAME", value=formData.name)
-            .row
-                .col-12               
-                    .form-group
-                        input.form-control(type="email", aria-describedby="email", placeholder="EMAIL" value=formData.email)
-            .row
-                .col-12                
-                    .form-group
-                        textarea.form-control(aria-describedby="message", placeholder="MESSAGE", rows="7")=formData.mesesage
-            .row
-                .col-12.send
-                        //- +fancybutton("buttongreen", "SEND", "")
-                        button.btn.fancybutton(class="buttongreen" type="submit") SEND
+            p Thanks for getting in touch.
+        else
+            form.py-5.grey-background.text-center(method="post")
+                input(type="hidden", name="action", value="contact")
+                .row
+                    .col-12
+                        p.ask-us-anything ASK US ANYTHING
+                .row
+                    .col-12
+                        .form-group
+                            input.form-control(type="text", aria-describedby="name", name="name", placeholder="NAME", value=formData.name)
+                .row
+                    .col-12               
+                        .form-group
+                            input.form-control(type="email", aria-describedby="email", name="email", placeholder="EMAIL" value=formData.email)
+                .row
+                    .col-12                
+                        .form-group
+                            textarea.form-control(aria-describedby="message", placeholder="MESSAGE", name="message", rows="7")=formData.mesesage
+                .row
+                    .col-12.send
+                            //- +fancybutton("buttongreen", "SEND", "")
+                            button.btn.fancybutton.buttongreen(type="submit") SEND
 
 
         //- else
