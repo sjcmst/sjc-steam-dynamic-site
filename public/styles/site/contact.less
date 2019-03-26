@@ -1,0 +1,58 @@
+@import "variable.less";
+
+//Color variables
+@contact_placeholder_grey: #cacacc;
+@contact_placeholder_bg: #f2f2f4;
+
+.grey-background{
+    background-color: @grey_bg_color;
+
+    .ask-us-anything{
+        color: @sjc_green_color;
+        letter-spacing: 0.2rem;
+        text-align: center;
+    }
+
+    .form-group{
+        width: 65%;
+        margin: 1rem auto;
+
+        input{
+            background-color: @contact_placeholder_bg;
+            color: black;
+            border: 0;
+            border-radius: 0;
+            letter-spacing: 0.05rem;
+            &::placeholder{
+                color: @contact_placeholder_grey;
+                letter-spacing: 0.2rem;
+            }
+        }
+    }
+
+
+
+
+    textarea{
+        background-color: @contact_placeholder_bg;
+        color: black;
+        border: 0;
+        border-radius: 0;
+        resize: none;
+        letter-spacing: 0.05rem;
+        &::placeholder{
+            color: @contact_placeholder_grey;
+            letter-spacing: 0.2rem;
+        }
+    }
+
+    input:focus, textarea:focus{
+        background-color: @contact_placeholder_bg;
+        border: 0;
+        border-radius: 0;
+    }
+    .send{
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+}
