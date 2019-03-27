@@ -17,7 +17,7 @@ Club.add({
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	logoImage: { type: Types.CloudinaryImage },
     clubImage: { type: Types.CloudinaryImage },
-	president: {type: Types.Relationship, ref: "Student"},
+	president: {type: Types.Relationship, ref: "User"},
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
 	description: {
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },

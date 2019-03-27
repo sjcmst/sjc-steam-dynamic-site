@@ -5,7 +5,10 @@ mixin club(club)
     .col-md-4.text-uppercase
         a(href="clubs/"+club.slug).prevent_default_a
             .frame
-                img(src="images/grey-triangles.jpg" alt="grey triangle")
+                if club.clubImage.exists
+                    img(src=club._.clubImage.fit(160,160)).img.pull-right
+                else
+                    img(src="images/grey-triangles.jpg" alt="grey triangle")
                 p.title=club.name
 
 block append variables
@@ -32,10 +35,9 @@ block content
     .row.learn-more
         .col-md-7
             ul.list-unstyled
+                li LEARN MORE                    
                 li 
-                    a(href="#!") LEARN MORE
-                li 
-                    a(href="#!")
+                    a(href="/about")
                         span.fas.fa-file
                         span More about the Lab
                 li                     
@@ -43,11 +45,11 @@ block content
                         span.fas.fa-lock
                         span More about the students in the space
                 li                     
-                    a(href="#!")
+                    a(href="/projects")
                         span.fas.fa-folder-open
                         span Current Projects
                 li                
-                    a(href="#!") 
+                    a(href="/contact") 
                         span.fas.fa-wifi
                         span Contact Us
                 li 

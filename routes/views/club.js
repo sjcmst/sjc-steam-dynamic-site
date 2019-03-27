@@ -19,10 +19,13 @@ exports = module.exports = function(req,res){
 			state: 'published',
 			//slug: locals.filters.club,
             slug: req.params.club,
-		}).populate('author club');
+        // });
+		}).populate('author');
+
 
 		q.exec(function (err, result) {
-			locals.data.club = result;
+            console.log(result);
+            locals.data.club = result;
 			next(err);
 		});
 
