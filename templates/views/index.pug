@@ -6,7 +6,7 @@ mixin club(club)
         a(href="clubs/"+club.slug).prevent_default_a
             .frame
                 if club.clubImage.exists
-                    img(src=club._.clubImage.fit(160,160)).img.pull-right
+                    img(src=club._.clubImage.fill(320,240)).img.pull-right
                 else
                     img(src="images/grey-triangles.jpg" alt="grey triangle")
                 p.title=club.name

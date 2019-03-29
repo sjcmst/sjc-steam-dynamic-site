@@ -2,12 +2,13 @@ extends ../layouts/default.pug
 include ../mixins/fancybutton.pug
 
 mixin project(project)
-    .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-        .shadow.p-3.mx-3.my-3.frame_height.text-uppercase
-            //-if project.projectImage.exist
-                .image-wrap: img(src=project._.projectImage).img-responsive.w-100
-            img(src="images/hkoi.png" alt="HKOI").w-100
-            p.title.item-name=project.name
+    .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12.frame_height
+        .shadow.p-3.mx-3.my-3
+            if (project.projectImage.exists)
+                img(src=project._.projectImage.fill(320,320)).img.pull-right.w-100
+            else 
+                img(src="images/grey-triangles.jpg" alt="grey triangle").w-100.default_image
+            p.title.item-name.text-uppercase=project.name
         +fancybutton("buttongreen", "VIEW DETAILS", 'projects/'+project.slug)
         .mb-4
     

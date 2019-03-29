@@ -28,6 +28,11 @@ exports = module.exports = function(req,res){
 
         q.exec(function (err, results) {
             locals.data.projects = results;
+            // console.log(results);
+            // for(let i=0;i<results.total;i++){
+            //     console.log(results[i].projectImage.exists);
+            // }
+            
             next(err);
         });
     });

@@ -24,7 +24,6 @@ exports = module.exports = function(req,res){
 
 
 		q.exec(function (err, result) {
-            console.log(result);
             locals.data.club = result;
 			next(err);
 		});

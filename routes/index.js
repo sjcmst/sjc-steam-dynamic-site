@@ -34,8 +34,8 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function (app) {
 	// Views
-	app.get('/', routes.views.index);
-	app.get('/blog/:category', routes.views.blog);
+	app.get('/', routes.views.homepage);
+	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/about', routes.views.about);
 	app.get('/projects', routes.views.projects);
