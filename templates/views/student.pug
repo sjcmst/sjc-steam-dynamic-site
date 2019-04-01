@@ -1,0 +1,15 @@
+extends ../layouts/default.pug
+
+
+
+block append variables
+    - var currentPage="student";
+
+block content
+    if data.student
+        h2.title.text-uppercase=data.student.name
+        br
+        div
+            if data.student.description
+                | !{data.student.description}     
+

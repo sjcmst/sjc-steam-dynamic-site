@@ -1,4 +1,5 @@
 extends ../layouts/default.pug
+include ../mixins/fancybutton.pug
 
 
 
@@ -7,11 +8,22 @@ block append variables
 
 block content
     if data.project
-        h2.title.text-uppercase=data.project.name
+        h2.pt-3.title.text-uppercase=data.project.name
         br
-        div
-            if data.project.description.brief
+        if data.project.description.brief
+            div
                 | !{data.project.description.brief}
-            if data.project.description.extended
-                | !{data.project.description.extended}         
+        if data.project.description.extended
+            a.text-center-fancy-button(href="#details" data-toggle="collapse" aria-expanded="false" aria-controls="details")
+                .btn.fancybutton.buttonwhite MORE INFORMATION
+            .py-2
+            #details.collapse
+                | !{data.project.description.extended}
+
+        if (data.project.projectImage.exists)
+            hr
+            .row
+                .offset-lg-3
+                .col-12.col-lg-6
+                    img(src=data.project._.projectImage.fit(840,840)).img.pull-right.w-100.image-center.px-3.pt-3.pb-5
 

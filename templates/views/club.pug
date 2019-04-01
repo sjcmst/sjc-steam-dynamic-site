@@ -7,11 +7,27 @@ block append variables
 
 block content
     if data.club
-        h2.title.text-uppercase=data.club.name
-        br
-        div
-            if data.club.description.brief
+        .row.vertical-align-center.py-3
+            if data.club.logoImage.exists
+                .offset-3.offset-sm-4.offset-md-0
+                .col-6.col-sm-4.col-md-3
+                    img(src=data.club._.logoImage.fit(120,120)).img.pull-right.w-100
+                .offset-3.offset-sm-4.offset-md-0
+                .col-12.col-md-auto
+                    h2.title.text-uppercase.text-center.py-3=data.club.name
+            else
+                .col-12
+                h2.title.py-4.text-uppercase=data.club.name
+        
+        if data.club.description.brief
+            div
                 | !{data.club.description.brief}
-            if data.club.description.extended
+        if data.club.description.extended
+            div
                 | !{data.club.description.extended}         
-
+        if (data.club.clubImage.exists)
+            hr
+            .row
+                .offset-lg-3
+                .col-12.col-lg-6
+                    img(src=data.club._.clubImage.fit(840,840)).img.pull-right.w-100.image-center.px-3.pt-3.pb-5

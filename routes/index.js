@@ -35,12 +35,14 @@ var routes = {
 exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.homepage);
+	//? is necessary as 'category' may not present
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/about', routes.views.about);
 	app.get('/projects', routes.views.projects);
 	app.get('/projects/:project', routes.views.project);
 	app.get('/clubs/:club',routes.views.club);
+	app.get('students/:student',routes.views.student);
 	app.get('/faq', routes.views.faq);
 	//Use all so that contact page can be shown twice?
 	app.all('/contact', routes.views.contact);

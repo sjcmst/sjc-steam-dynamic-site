@@ -5,16 +5,20 @@ var Types = keystone.Field.Types;
  * User Model
  * ==========
  */
-var User = new keystone.List('User');
+var User = new keystone.List('User',{
+	//map: {name:"nameString"},
+	//autokey: { path: 'slug', from: 'nameString', unique: true }
+});
 
 User.add({
-	name: { type: Types.Name, required: true, index: true },
+	name: { type: Types.Name, required: true, index: true},
+	//nameString: {type: String, required: true},
 	email: { type: Types.Email, initial: true, required: true, unique: true, index: true },
 	password: { type: Types.Password, initial: true, required: true },
-	description: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 },
-	},
+	description: { type: Types.Html, wysiwyg: true, height: 400 },
+	achievement: {type: Types.Html, wysiwyg: true, height: 150 , many: true},
+	profilePic: {type: Types.CloudinaryImage},
+	//yearOfAdmission: {type: Types.Integer}
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
 });
