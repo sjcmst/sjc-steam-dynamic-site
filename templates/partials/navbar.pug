@@ -5,25 +5,25 @@
                 button.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#sjc-navbar-items', aria-controls='theNavBar', aria-expanded='false', aria-label='Toggle navigation')
                     span.navbar-toggler-icon
             .flex-item
-                - var currentPage = '' || currentPage;
+                - var activeElement = '' || activeElement;
 
                 #sjc-navbar-items.collapse.navbar-collapse
                     ul.navbar-nav.mr-auto
-                        li.nav-item(class={'active': currentPage === 'contact'})
+                        li.nav-item(class={'active': activeElement === 'contact'})
                             a.nav-link(href='/contact') CONTACT
                             
                         li.nav-item.dropdown(aria-haspopup="true" aria-expanded="false")
                             div.same_line
-                                a.nav-link(href='/about' class={'active': currentPage === 'about'}) ABOUT
-                                #dropdown_about.nav-link(class={'active': currentPage === 'about'}) +
+                                a.nav-link(href='/about' class={'active': activeElement === 'about'}) ABOUT
+                                #dropdown_about.nav-link(class={'active': activeElement === 'about'}) +
                                     #sjc-dropdown.dropdown-menu(aria-labelledby="dropdown_about")
-                                        a#sjc-dropdown-projects.dropdown-item(href="/projects" class={'active': currentPage === 'projects'}) PROJECTS
-                                        a#sjc-dropdown-faq.dropdown-item(href="/faq" class={'active': currentPage === 'faq'}) FAQ
+                                        a#sjc-dropdown-projects.dropdown-item(href="/projects" class={'active': activeElement === 'projects'}) PROJECTS
+                                        a#sjc-dropdown-faq.dropdown-item(href="/faq" class={'active': activeElement === 'faq'}) FAQ
                                     
-                        li.nav-item(class={'active': currentPage === 'blog'})
+                        li.nav-item(class={'active': activeElement === 'blog'})
                             a.nav-link(href='/blog' ) BLOG
                             
-                        li.nav-item(class={'active': currentPage === 'index'})
+                        li.nav-item(class={'active': activeElement === 'index'})
                             a.nav-link(href='/' ) HOME
                         
                         //-li.nav-item

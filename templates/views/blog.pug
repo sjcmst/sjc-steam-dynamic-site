@@ -22,6 +22,10 @@ mixin post(post)
 		if post.content.extended
 			p.read-more: a(href='/blog/post/' + post.slug) Read more...
 
+block append variables
+	- var activeElement="blog";
+	- var pageId="blog";
+
 block intro
 	.container
 		h1= data.category ? data.category.name : 'Blog'

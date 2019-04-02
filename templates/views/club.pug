@@ -1,16 +1,16 @@
 extends ../layouts/default.pug
 
 
-
 block append variables
-    - var currentPage="club";
+    - var activeElement="index";
+    - var pageId="club";
 
 block content
     if data.club
-        .row.vertical-align-center.py-3
+        .row.vertical-align-center.pt-3.pb-5.w-100
             if data.club.logoImage.exists
                 .offset-3.offset-sm-4.offset-md-0
-                .col-6.col-sm-4.col-md-3
+                .col-6.col-sm-4.col-md-2
                     img(src=data.club._.logoImage.fit(120,120)).img.pull-right.w-100
                 .offset-3.offset-sm-4.offset-md-0
                 .col-12.col-md-auto

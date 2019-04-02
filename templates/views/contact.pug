@@ -2,8 +2,9 @@ extends ../layouts/default
 include ../mixins/fancybutton.pug
 
 block append variables
-    - var currentPage="contact";
-        
+    - var activeElement="contact";
+    - var pageId="contact";
+
 block content
     .container.grey-background.py-5
         if enquirySubmitted

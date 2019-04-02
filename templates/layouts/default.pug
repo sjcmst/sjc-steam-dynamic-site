@@ -51,7 +51,8 @@ html
 		//- To set the active element for navbar
 		block variables
 			//- default values of all variables
-			- var currentPage="404";
+			- var activeElement="404";
+			- var pageId="404";
 		
 		
 		
@@ -73,7 +74,7 @@ html
 			include ../partials/navbar.pug
 			
 		//- BODY
-		#body: .container.main_container(id=`${currentPage}`)
+		#body: .container.main_container(id=`${pageId}`)
 
 			//- NOTE:
 			//- There is no .container wrapping class around body blocks to allow more flexibility in design.

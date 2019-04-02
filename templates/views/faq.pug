@@ -12,7 +12,8 @@ mixin category(number)
         p.answer A: Nulla euismod elementum.
         .end-bar
 block append variables
-    - var currentPage="faq";
+    - var activeElement="faq";
+    - var pageId="faq";
 
 block content
     div#faq_background
