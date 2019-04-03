@@ -32,8 +32,10 @@ exports = module.exports = function(req,res){
 
 		q.exec(function (err, result) {
 			locals.data.student = result;
-      locals.data.student.studyingStatus = calStudyingStatus(locals.data.student.yearOfAdmission);
-			next(err);
+      if(result){
+        locals.data.student.studyingStatus = calStudyingStatus(locals.data.student.yearOfAdmission);
+      }
+      next(err);
 		});
 
 	});
