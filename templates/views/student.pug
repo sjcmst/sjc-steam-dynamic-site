@@ -8,9 +8,13 @@ block append variables
 
 block content
     if data.student
-        h2.title.text-uppercase=data.student.name
+        h2.title.text-uppercase=data.student.name.full
         br
         div
             if data.student.description
-                | !{data.student.description}     
-
+                | !{data.student.description}
+            else
+              p=data.student.name.full+ ' is a mystery'
+        p A #{data.student.studyingStatus} student studying in SJC
+    else
+        h2 Nobody here.  

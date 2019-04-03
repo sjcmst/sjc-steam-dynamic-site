@@ -42,7 +42,7 @@ exports = module.exports = function (app) {
 	app.get('/projects', routes.views.projects);
 	app.get('/projects/:project', routes.views.project);
 	app.get('/clubs/:club',routes.views.club);
-	app.get('students/:student',routes.views.student);
+	app.get('/students/:student',routes.views.student);
 	app.get('/faq', routes.views.faq);
 	//Use all so that contact page can be shown twice?
 	app.all('/contact', routes.views.contact);
