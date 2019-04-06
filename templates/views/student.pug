@@ -15,6 +15,7 @@ block content
                 | !{data.student.description}
             else
               p=data.student.name.full+ ' is a mystery'
-        p A #{data.student.studyingStatus} student studying in SJC
+        if data.student.studyingStatus
+            p A #{data.student.studyingStatus} student studying in SJC
     else
         h2 Nobody here.  

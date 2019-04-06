@@ -8,7 +8,7 @@ mixin club(club)
                 if club.clubImage.exists
                     img(src=club._.clubImage.fill(320,240)).img.pull-right
                 else
-                    img(src="images/grey-triangles.jpg" alt="grey triangle")
+                    img(src="https://res.cloudinary.com/sjcsteam/image/upload/c_fill,w_320/v1554475615/grey-triangles.jpg" alt="grey triangle")
                 p.title=club.name
 
 block append variables
@@ -18,15 +18,17 @@ block append variables
 
 block content
     //- first row
+    .py-3
     .row.watch-video
         .col-md-5
-            img(src="images/grey-triangles.jpg" alt="grey triangle")
+            img(src="https://res.cloudinary.com/sjcsteam/image/upload/c_fill,w_200,h_333/v1554475615/grey-triangles.jpg" alt="grey triangle")
+            .py-3
         .col-md-7.busyness
             p Admist the busyness of school life, SJC STEAM Lab provides the space for us to #[span Break the Cycle, Rise Above, Focus on Science]
             a(href="#!") 
                 span WATCH 
                 span.fas.fa-play-circle
-    
+    .py-5
     //- second row
     .row.clubs.text-center
         each club in data.clubs.results
@@ -57,4 +59,4 @@ block content
                     a(href="#!") READ MORE
                 
         .col-md-5
-            img(src="images/grey-triangles.jpg" alt="grey triangle")
+            img(src="https://res.cloudinary.com/sjcsteam/image/upload/c_fill,w_200,h_400/v1554475615/grey-triangles.jpg" alt="grey triangle")

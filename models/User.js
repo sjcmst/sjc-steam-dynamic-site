@@ -5,9 +5,7 @@ var Types = keystone.Field.Types;
  * User Model
  * ==========
  */
-function createAutoKey(){
 
-}
 var User = new keystone.List('User',{
 	autokey: { path: 'slug', from: 'name' , unique: true }
 });
@@ -19,6 +17,7 @@ User.add({
 	password: { type: Types.Password, initial: true, required: true },
 	description: { type: Types.Html, wysiwyg: true, height: 400 },
 	achievement: {type: Types.Html, wysiwyg: true, height: 150 , many: true},
+	isWebTeam: {type: Boolean, default: false},
 	profilePic: {type: Types.CloudinaryImage},
 	yearOfAdmission: {type: Types.Number }
 }, 'Permissions', {
@@ -40,5 +39,5 @@ User.relationship({ ref: 'Post', path: 'posts', refPath: 'author' });
 /**
  * Registration
  */
-User.defaultColumns = 'name, email, isAdmin';
+User.defaultColumns = 'name, email, isAdmin, hasPublicPage';
 User.register();

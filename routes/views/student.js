@@ -2,13 +2,15 @@ var keystone = require("keystone");
 
 function calStudyingStatus(yearOfAdmission){
     let currentTime = new Date();
-    let currentYear = currentTime.getFullYear();
-    let currentMonth = currentTime.getMonth();
-    let studentYear = currentYear-yearOfAdmission;
-    if(currentMonth>=9){
+    let studentYear = currentTime.getFullYear()-yearOfAdmission;
+    if(currentTime.getMonth()>=9){
       studentYear++;
     }
-    return "form " + studentYear;
+    if(studentYear<=6)
+      return "Form " + studentYear + " student";
+    else
+      return "Old boy";
+
 }
 exports = module.exports = function(req,res){
     var view = new keystone.View(req,res);
@@ -32,9 +34,9 @@ exports = module.exports = function(req,res){
 
 		q.exec(function (err, result) {
 			locals.data.student = result;
-      if(result){
+      if(result)
+        if(locals.data.student.yearOfAdmission)
         locals.data.student.studyingStatus = calStudyingStatus(locals.data.student.yearOfAdmission);
-      }
       next(err);
 		});
 

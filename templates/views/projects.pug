@@ -2,12 +2,12 @@ extends ../layouts/default.pug
 include ../mixins/fancybutton.pug
 
 mixin project(project)
-    .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12.frame_height
-        .shadow.p-3.mx-3.my-3
+    .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+        .shadow.p-3.mx-3.my-3.frame_height.normal-project
             if (project.projectImage.exists)
                 img(src=project._.projectImage.fill(320,320)).img.pull-right.w-100
             else 
-                img(src="images/grey-triangles.jpg" alt="grey triangle").w-100.default_image
+                img(src="https://res.cloudinary.com/sjcsteam/image/upload/c_fill,h_320,w_320/v1554475615/grey-triangles.jpg" alt="grey triangle").img.pull-right.w-100
             p.title.item-name.text-uppercase=project.name
         +fancybutton("buttongreen", "VIEW DETAILS", 'projects/'+project.slug)
         .mb-4
@@ -23,7 +23,7 @@ block content
             +project(project)
             
         .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
-            #coming_soon.shadow.p-3.mx-3.my-3.test-border.frame_height
+            #coming_soon.shadow.p-3.mx-3.my-3.frame_height
                 .rounded-circle
                 .horizontal_line
                 .vertical_line

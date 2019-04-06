@@ -1,127 +1,134 @@
 @import "variable.less";
-
-.watch-video{
-    background-color: @grey_bg_color;
-    margin: 3rem 0 5rem 0;
-    display: relative;
-
-    img{
-        margin-top: -2rem;
-        margin-left: 2rem;
-        width: 200px;
-        height: 130%;
-        box-shadow: @shadow;
-    }
-
-    .busyness{
-        padding: 4rem 2rem;
-        text-align: right;
-        letter-spacing: 0.1rem;
-        font-family: @serif-font;
-        font-weight: 400;
-        color: @blue_color;
-
-        p span{
-            font-weight: 1000;
-        }
-        a{
-            text-decoration: none;
-            color: @blue_color;
-            font-family: @sans-font;
-        }
-    }
-}
-.clubs{
-    .frame{
-        box-shadow: @shadow;
-
-        img{
-            width: 100%;
-            padding: 1rem;
-
-        }
-        p{
-            //INCONSISTANCY PROBLEM                
-            padding-bottom: 1rem;
-            word-wrap: normal;
-            margin: 0 auto;
+#index{
+    .watch-video{
+        background-color: @grey_bg_color;
+        // margin: 3rem 0 3rem 0;
+        display: relative;
+        .col-md-5{
+            //center align the image
             text-align: center;
-            color: @sjc_green_color;
-            width: 13rem;
         }
-    }
-
-}
-
-.learn-more{
-    background-color: @grey_bg_color;
-    margin: 2rem 0 0 0;
-
-    ul{
-        padding: 3rem 4rem;
-
-        li{
-            margin-top: 1rem;
-
-            a{
-                .fas{
-                    color: @sjc_green_color;
-                }
-                .fas+span{
-                    color: grey;
-                    font-size: 0.7rem;
-                }
-            }
-            .fa-file{
-                font-size: 2rem;
-            }
-            .fa-lock{
-                font-size: 2rem;
-            }
-            .fa-folder-open{
-                font-size: 1.8rem;
-            }
-            .fa-wifi{
-                font-size: 1.6rem;
-            }
-            .fa-file+span{
-                padding-left: 1.25rem;
-            }
-            .fa-lock+span{
-                padding-left: 1rem;
-            }
-            .fa-folder-open+span{
-                padding-left: 0.7rem;
-            }
-            .fa-wifi+span{
-                padding-left: 0.7rem;
-            }
-
+        img{
+            margin: -2rem auto -4rem auto;
+            // width: 200px;
+            // height: 130%;
+            box-shadow: @shadow;
         }
 
-        // Learn More tag
-        li:nth-child(1){
-            color: @sjc_green_color;
-            letter-spacing: 0.3rem;
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        //Read More tag
-        li:nth-child(6) a{
-            text-decoration: underline;
+        .busyness{
+            padding: 4rem 2rem;
+            text-align: right;
             letter-spacing: 0.1rem;
-            color: grey;
-            font-size: 0.8rem;
+            font-family: @serif-font;
+            font-weight: 400;
+            color: @blue_color;
+
+            p span{
+                font-weight: 1000;
+            }
+            a{
+                text-decoration: none;
+                color: @blue_color;
+                font-family: @sans-font;
+            }
         }
     }
+    .clubs{
+        .frame{
+            box-shadow: @shadow;
 
-    img{
-        position: absolute;
-        right: 5rem;
-        margin-top: 2rem;
-        width: 200px;
-        height: 100%;
-        box-shadow: @shadow;
+            img{
+                width: 100%;
+                padding: 1rem;
+
+            }
+            p{
+                //INCONSISTANCY PROBLEM                
+                padding-bottom: 1rem;
+                word-wrap: normal;
+                margin: 0 auto;
+                text-align: center;
+                color: @sjc_green_color;
+                width: 13rem;
+            }
+        }
+
+    }
+
+    .learn-more{
+        background-color: @grey_bg_color;
+        margin: 2rem 0 0 0;
+
+        ul{
+            padding: 3rem 4rem;
+
+            li{
+                margin-top: 1rem;
+
+                a{
+                    .fas{
+                        color: @sjc_green_color;
+                    }
+                    .fas+span{
+                        color: grey;
+                        font-size: 0.7rem;
+                    }
+                }
+                .fa-file{
+                    font-size: 2rem;
+                }
+                .fa-lock{
+                    font-size: 2rem;
+                }
+                .fa-folder-open{
+                    font-size: 1.8rem;
+                }
+                .fa-wifi{
+                    font-size: 1.6rem;
+                }
+                .fa-file+span{
+                    padding-left: 1.25rem;
+                }
+                .fa-lock+span{
+                    padding-left: 1rem;
+                }
+                .fa-folder-open+span{
+                    padding-left: 0.7rem;
+                }
+                .fa-wifi+span{
+                    padding-left: 0.7rem;
+                }
+
+            }
+
+            // Learn More tag
+            li:nth-child(1){
+                color: @sjc_green_color;
+                letter-spacing: 0.3rem;
+                font-weight: 700;
+                font-size: 1rem;
+            }
+
+            //Read More tag
+            li:nth-child(6) a{
+                text-decoration: underline;
+                letter-spacing: 0.1rem;
+                color: grey;
+                font-size: 0.8rem;
+            }
+        }
+        .col-md-5{
+            //center align the image
+            text-align: center;
+        }
+        img{
+            // position: absolute;
+            // margin-right: 5rem;
+            margin-top: 2rem;
+            margin-bottom: -2rem;
+            //width: 200px;
+            //height: 100%;
+            box-shadow: @shadow;
+        }
     }
 }
