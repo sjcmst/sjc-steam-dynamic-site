@@ -6,8 +6,10 @@ mixin project(project)
         .shadow.p-3.mx-3.my-3.frame_height.normal-project
             if (project.projectImage.exists)
                 img(src=project._.projectImage.fill(320,320)).img.pull-right.w-100
-            else 
-                img(src="https://res.cloudinary.com/sjcsteam/image/upload/c_fill,h_320,w_320/v1554475615/grey-triangles.jpg" alt="grey triangle").img.pull-right.w-100
+            else
+                //- h 320 w 320
+                
+                img(src="images/grey-triangles.jpg" alt="grey triangle").w-100.default-project-image
             p.title.item-name.text-uppercase=project.name
         +fancybutton("buttongreen", "VIEW DETAILS", 'projects/'+project.slug)
         .mb-4

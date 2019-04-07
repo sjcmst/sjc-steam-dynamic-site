@@ -30,7 +30,7 @@ exports = module.exports = function(req,res){
             locals.data.projects = results;
             
             //TEST PURPOSES
-            console.log(results);
+            //console.log(results);
             
             next(err);
         });

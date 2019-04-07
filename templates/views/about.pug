@@ -13,7 +13,7 @@ mixin teamMember(teamMember)
         if teamMember.profilePic.exists
             img.person-icon(src=teamMember._.profilePic.fill(160,160))
         else
-            img.person-icon(src="https://res.cloudinary.com/sjcsteam/image/upload/v1554475615/dude.jpg" alt="dude")
+            img.person-icon(src="images/dude.jpeg" alt="dude")
     if teamMember.name
         p.team_title.title.text-uppercase=teamMember.name.first
 
@@ -25,7 +25,7 @@ block content
     .container-fluid
         .row#about-steam-lab
             .col-xl-4.col-lg-4.col-md-5.col-sm-12.col-12
-                img(src="https://res.cloudinary.com/sjcsteam/image/upload/c_scale,w_440/v1554475617/sjc-badge.jpg" alt="school badge")
+                img(src="images/sjc-badge.jpg" alt="school badge")
             .col-xl-8.col-lg-8.col-md-7.col-sm-12.col-12.px-5.py-5
                 p.title SJC STEAM CLUB
                 p.
@@ -59,7 +59,7 @@ block content
         //-    added pic in abouts.less, as a background image
         .row#feature-equipment-2
             .col-xl-8.col-lg-8.col-md-12.col-sm-12.col-12
-                img(src="https://res.cloudinary.com/sjcsteam/image/upload/v1554475615/3dprinter.jpg" alt="3D Printer")
+                img(src="images/3dprinter.jpg" alt="3D Printer")
             .col-xl-4.col-lg-4.col-md-12.col-sm-12.col-12.px-5.py-5
                 p.title 3D PRINTER
                 p.
