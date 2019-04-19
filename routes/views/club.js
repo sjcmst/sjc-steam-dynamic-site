@@ -20,7 +20,7 @@ exports = module.exports = function(req,res){
 			//slug: locals.filters.club,
             slug: req.params.club,
         // });
-		}).populate('author');
+		}).populate('author president');
 
 
 		q.exec(function (err, result) {

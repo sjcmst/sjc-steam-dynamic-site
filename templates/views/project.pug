@@ -9,8 +9,21 @@ block append variables
 
 block content
     if data.project
-        h2.pt-3.title.text-uppercase=data.project.name
+        h2.pt-3.title.text-uppercase=data.project.name        
         br
+
+        p
+            if data.project.team
+                | ---- by &nbsp;
+                each teamMember, index in data.project.team
+                    if index!=0
+                        |, &nbsp;
+                    | <a href="!{'/students/'+teamMember.slug}">!{teamMember.name.full}</a>
+        p
+            if data.project.club.name
+                | ---- created by <a href="!{'/clubs/'+data.project.club.slug}">!{data.project.club.name}</a>
+        
+        hr
         if data.project.description.brief
             div
                 | !{data.project.description.brief}

@@ -1,13 +1,7 @@
 extends ../layouts/default.pug
 
-//- What I have worked on abouts page
-//- 1. changed the photos and added some content
-//- 2. changed to bootstrap padding
-//- 3. adjusted the col for md screens to 12
-//-     problem: inconsistancy for feature equipment 1 and 2
-//- 4. added offset col for teams
-//-     problem: xl 2 is too small 3 is too big
-//- 5. Added mixin
+//- column problem in 'meet the team' part
+
 mixin teamMember(teamMember)
     a(href="/students/"+teamMember.slug)
         .rounded-circle

@@ -19,7 +19,7 @@ exports = module.exports = function(req,res){
 			state: 'published',
 			//slug: locals.filters.project,
             slug: req.params.project,
-		}).populate('author club');
+		}).populate('author club team');
 
 		q.exec(function (err, result) {
 			locals.data.project = result;

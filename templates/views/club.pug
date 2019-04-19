@@ -14,10 +14,18 @@ block content
                     img(src=data.club._.logoImage.fit(120,120)).img.pull-right.w-100
                 .offset-3.offset-sm-4.offset-md-0
                 .col-12.col-md-auto
-                    h2.title.text-uppercase.text-center.py-3=data.club.name
+                    .py-3
+                    h2.title.text-uppercase.text-center=data.club.name
+                    if data.club.president.name.full
+                        p President: <a href="!{'/students/'+data.club.president.slug}">#{data.club.president.name.full}</a>
+                    .py-3
             else
                 .col-12
-                h2.title.py-4.text-uppercase=data.club.name
+                    .py-4
+                    h2.title.text-uppercase=data.club.name
+                    if data.club.president.name.full
+                        p President: #{data.club.president.name.full}
+                    .py-4
         
         if data.club.description.brief
             div
