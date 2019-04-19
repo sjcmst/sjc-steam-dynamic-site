@@ -6,10 +6,12 @@ function calStudyingStatus(yearOfAdmission){
     if(currentTime.getMonth()>=9){
       studentYear++;
     }
-    if(studentYear<=6)
+    if(studentYear<=6&&studentYear>0)
       return "Form " + studentYear + " student";
-    else
+    else if(studentYear>0)
       return "Old boy";
+    else
+      return "";
 
 }
 exports = module.exports = function(req,res){

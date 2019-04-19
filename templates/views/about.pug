@@ -9,11 +9,12 @@ extends ../layouts/default.pug
 //-     problem: xl 2 is too small 3 is too big
 //- 5. Added mixin
 mixin teamMember(teamMember)
-    .rounded-circle
-        if teamMember.profilePic.exists
-            img.person-icon(src=teamMember._.profilePic.fill(160,160))
-        else
-            img.person-icon(src="images/dude.jpeg" alt="dude")
+    a(href="/students/"+teamMember.slug)
+        .rounded-circle
+            if teamMember.profilePic.exists
+                img.person-icon(src=teamMember._.profilePic.fill(160,160))
+            else
+                img.person-icon(src="images/dude.jpeg" alt="dude")
     if teamMember.name
         p.team_title.title.text-uppercase=teamMember.name.first
 

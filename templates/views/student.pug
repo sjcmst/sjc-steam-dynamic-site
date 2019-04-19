@@ -3,19 +3,36 @@ extends ../layouts/default.pug
 
 
 block append variables
-    //- var activeElement="student";
+    - var activeElement="";
     - var pageId="student";
 
 block content
     if data.student
-        h2.title.text-uppercase=data.student.name.full
+        .row
+            .col-xl-4.col-lg-4.col-md-6.col-sm-12.col-12
+                .shadow.p-3.mx-3.my-3.frame_height.normal-project
+                    if (data.student.profilePic.exists)
+                        img(src=data.student._.profilePic.fill(320,320)).img.pull-right.w-100
+                    else
+                        //- h 320 w 320
+                        
+                        img(src="/images/grey-triangles.jpg" alt="profilePic").w-100.default-project-image
+                    .name-box.pt-3
+                        p.title.item-name.text-uppercase=data.student.name.full
+                        if data.student.studyingStatus
+                            p.studying-status=data.student.studyingStatus
+            .col-xl-8.col-lg-8.col-md-6.col-sm-12.col-12.py-3
+                if data.student.achievement
+                    h3.title.text-center ACHIEVEMENTS
+                    | !{data.student.achievement}
+                else
+                    br
+                    br
+                    p.text-center=data.student.name.full+ ' is a mystery'
         br
         div
             if data.student.description
+                h3.title.text-center DESCRIPTION
                 | !{data.student.description}
-            else
-              p=data.student.name.full+ ' is a mystery'
-        if data.student.studyingStatus
-            p A #{data.student.studyingStatus} student studying in SJC
     else
         h2 Nobody here.  
