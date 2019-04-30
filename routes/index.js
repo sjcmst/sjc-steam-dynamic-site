@@ -36,8 +36,8 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.homepage);
 	//? is necessary as 'category' may not present
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
+	app.get('/news/:category?', routes.views.allnews);
+	app.get('/news/a/:news', routes.views.news);
 	app.get('/about', routes.views.about);
 	app.get('/projects', routes.views.projects);
 	app.get('/projects/:project', routes.views.project);

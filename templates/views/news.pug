@@ -1,0 +1,32 @@
+extends ../layouts/default
+
+block append variables
+	- var activeElement="news";
+	- var pageId="news";
+block content
+	.container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+		article
+			p: a(href='/news') &larr; back to the news
+			hr
+			if !data.news
+				h2 Invalid news.
+			else
+				header
+					h1= data.news.title
+					h5 Posted 
+						if data.news.publishedDate
+							| on #{data.news._.publishedDate.format('MMMM Do, YYYY')} 
+						if data.news.categories && data.news.categories.length
+							| in 
+							each cat, cat_i in data.news.categories
+								a(href='/news/' + cat.key)= cat.name
+								if cat_i < data.news.categories.length - 1
+									| , 
+								else
+									|  
+						if data.news.author
+							| by #{data.news.author.name.first}
+				.news
+					if data.news.image.exists
+						.image-wrap: img(src=data.news._.image.fit(750,450)).img-responsive
+					!= data.news.content.full

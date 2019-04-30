@@ -6,24 +6,24 @@ exports = module.exports = function (req, res) {
 	var locals = res.locals;
 
 	// Set locals
-	locals.section = 'blog';
+	locals.section = 'news';
 	locals.filters = {
-		post: req.params.post,
+		news: req.params.news,
 	};
 	locals.data = {
 		posts: [],
 	};
 
-	// Load the current post
+	// Load the current news
 	view.on('init', function (next) {
 
-		var q = keystone.list('Post').model.findOne({
+		var q = keystone.list('News').model.findOne({
 			state: 'published',
-			slug: locals.filters.post,
+			slug: locals.filters.news,
 		}).populate('author categories');
 
 		q.exec(function (err, result) {
-			locals.data.post = result;
+			locals.data.news = result;
 			next(err);
 		});
 
@@ -32,18 +32,18 @@ exports = module.exports = function (req, res) {
 	// Load other posts
 	view.on('init', function (next) {
 
-		var q = keystone.list('Post').model.find()
+		var q = keystone.list('News').model.find()
 			.where('state', 'published')
 			.sort('-publishedDate')
 			.populate('author').limit('4');
 
 		q.exec(function (err, results) {
-			locals.data.posts = results;
+			locals.data.allnews = results;
 			next(err);
 		});
 
 	});
 
 	// Render the view
-	view.render('post');
+	view.render('news');
 };

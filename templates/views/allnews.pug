@@ -1,0 +1,79 @@
+extends ../layouts/default
+
+mixin news(news)
+	.news(data-ks-editable=editable(user, { list: 'News', id: news.id }))
+		h2: a(href='/news/a/' + news.slug)= news.title
+		p.lead.text-muted Posted 
+			if news.publishedDate
+				| on #{news._.publishedDate.format('MMMM Do, YYYY')} 
+			if news.categories && news.categories.length
+				| in 
+				each cat, i in news.categories
+					a(href='/news/' + cat.key)= cat.name
+					if i < news.categories.length - 1
+						| , 
+					else
+						|  
+			if news.author
+				| by #{news.author.name.first}
+		if news.image.exists
+			img(src=news._.image.fit(160,160)).img.pull-right
+		p!= news.content.brief
+		if news.content.extended
+			p.read-more: a(href='/news/a/' + news.slug) Read more...
+
+block append variables
+	- var activeElement="news";
+	- var pageId="allnews";
+
+block intro
+	.container
+		h1= data.category ? data.category.name : 'ALL NEWS'
+
+block content
+	.container: .row
+		.col-sm-8.col-md-9
+			if filters.category && !data.category
+				h3.text-muted Invalid Category.
+			else
+				if data.allnews.results.length
+					if data.allnews.totalPages > 1
+						h4.text-weight-normal Showing 
+							strong #{data.allnews.first}
+							|  to 
+							strong #{data.allnews.last}
+							|  of 
+							strong #{data.allnews.total}
+							|  allnews.
+					else
+						h4.text-weight-normal Showing #{utils.plural(data.allnews.results.length, '* news')}.
+					.blog
+						each news in data.allnews.results
+							+news(news)
+					
+					if data.allnews.totalPages > 1
+						ul.pagination
+							if data.allnews.previous
+								li: a(href='?page=' + data.allnews.previous): span.glyphicon.glyphicon-chevron-left
+							else
+								li.disabled: a(href='?page=' + 1): span.glyphicon.glyphicon-chevron-left
+							each p, i in data.allnews.pages
+								li(class=data.allnews.currentPage == p ? 'active' : null)
+									a(href='?page=' + (p == '...' ? (i ? data.allnews.totalPages : 1) : p ))= p
+							if data.allnews.next
+								li: a(href='?page=' + data.allnews.next): span.glyphicon.glyphicon-chevron-right
+							else
+								li.disabled: a(href='?page=' + data.allnews.totalPages): span.entypo.glyphicon.glyphicon-chevron-right
+				else
+					if data.category
+						h3.text-muted There are no allnews in the category #{data.category.name}.
+					else
+						h3.text-muted There are no allnews yet.
+		
+		if data.categories.length
+			.col-sm-4.col-md-3
+				h2 Categories
+				.list-group(style='margin-top: 70px;')
+					a(href='/news/', class=!data.category ? 'active' : false).list-group-item All Categories
+					each cat in data.categories
+						a(href='/news/' + cat.key, class=data.category && data.category.id == cat.id ? 'active' : false).list-group-item= cat.name
