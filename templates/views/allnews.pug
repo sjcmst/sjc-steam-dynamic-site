@@ -1,6 +1,30 @@
 extends ../layouts/default
 
 mixin news(news)
+	.col-12.col-md-6
+		.shadow.p-3.mx-3.my-3
+			h2: a(href='/news/a/' + news.slug)= news.title
+			
+				//-if news.categories && news.categories.length
+					| in 
+					each cat, i in news.categories
+						a(href='/news/' + cat.key)= cat.name
+						if i < news.categories.length - 1
+							| , 
+						else
+							| 
+			p.text-muted
+				if news.author
+					| By #{news.author.name.first}
+			p!= news.content.brief
+			if news.content.extended
+				p.read-more: a(href='/news/a/' + news.slug) Read more...
+			p.text-muted
+				if news.publishedDate
+					| #{news._.publishedDate.format('D MMMM, YYYY')} 
+		.mb-4
+		
+mixin newss(news)
 	.news(data-ks-editable=editable(user, { list: 'News', id: news.id }))
 		h2: a(href='/news/a/' + news.slug)= news.title
 		p.lead.text-muted Posted 
@@ -27,12 +51,19 @@ block append variables
 	- var pageId="allnews";
 
 block intro
-	.container
-		h1= data.category ? data.category.name : 'ALL NEWS'
+	.row
+		.col-12
+			h1= data.category ? data.category.name : 'ALL NEWS'
 
 block content
-	.container: .row
-		.col-sm-8.col-md-9
+	.row
+		each news in data.allnews.results
+			+news(news)
+			
+		//-each news in data.allnews.results
+			+newss(news)
+			
+		//- .col-sm-8.col-md-9
 			if filters.category && !data.category
 				h3.text-muted Invalid Category.
 			else
